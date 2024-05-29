@@ -5,6 +5,9 @@ import { CardDemo } from "@/components/Card";
 import ParticlesComponent from '@/components/Particles';
 import { motion } from 'framer-motion';
 import { Loading } from '@/components/Loading';
+import { ContactForm } from '@/components/Contact';
+import Link from 'next/link';
+import Navbar from '@/components/Navbar';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -14,7 +17,7 @@ export default function Home() {
       setLoading(false);
     }, 2500);
 
-    return () => clearTimeout(timer); 
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -27,9 +30,11 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
         >
+          <Navbar/>
           <ParticlesComponent />
           <InteractiveImage />
           <CardDemo />
+          {/* <ContactForm /> */}
         </motion.div>
       )}
     </>
