@@ -2,13 +2,23 @@
     "Home": {
         "welcome": "Bienvenido",
         "about": "Soy Rafael Monroy, desarrollador front-end con una sólida experiencia en la creación de interfaces atractivas y funcionales. He trabajado en una variedad de proyectos, desde aplicaciones CRM, hasta plataformas inmobiliarias y sitios web informativos.        ",
-        "about2": "Mi pasión radica en el desarrollo de software que optimiza procesos y genera resultados medibles. Me encanta crear aplicaciones móviles que brindan accesibilidad a los usuarios y diseñar interfaces que combinan estética y funcionalidad.",
+        "about2": "Mi pasión radica en el desarrollo de software para optimiza procesos y genera resultados medibles. Me encanta crear aplicaciones web y móviles que brindan accesibilidad a los usuarios y diseñar interfaces que combinan estética y funcionalidad.",
         "projects": "Proyectos"
     },
     "Navbar": {
-        "contact": "Contacto"
+        "contact": "Contacto",
+        "home": "Inicio"
     },
-    "Image":{
+    "Image": {
         "hi": "¡Hola!"
+    },
+    "Contact": {
+        "name": "Nombre:",
+        "placeholderName": "Escribe tu nombre",
+        "email": "Correo Electronico:",
+        "placeholderEmail": "Escribe tu correo",
+        "description": "Message",
+        "placeholderDescription": "Escribe tu mensaje",
+        "button": "Enviar"
     }
 }

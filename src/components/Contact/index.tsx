@@ -19,6 +19,7 @@ import { useEffect, useRef } from "react"
 import { Textarea } from "../ui/textarea"
 import { useToast } from "../ui/use-toast"
 import emailjs from 'emailjs-com';
+import { useTranslations } from "next-intl";
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -34,6 +35,7 @@ const formSchema = z.object({
 
 export function ContactForm() {
   const { toast } = useToast()
+  const t = useTranslations("Contact");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -55,6 +57,7 @@ export function ContactForm() {
             description: "Correo Enviado.",
             duration: 2400,
           })
+          form.reset(); // resetea el formulario
         },
         (error: any) => {
           toast({
@@ -65,7 +68,6 @@ export function ContactForm() {
         },
       );
   };
-  
 
   useEffect(() => {
     const all = document.querySelectorAll(".card");
@@ -111,9 +113,9 @@ export function ContactForm() {
               name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Nombre:</FormLabel>
+                  <FormLabel className="text-white">{t("name")}</FormLabel>
                   <FormControl>
-                    <Input className="text-white" placeholder="Escriba su nombre" {...field} />
+                    <Input className="text-white" placeholder={t("placeholderName")} {...field} />
                   </FormControl>
                 </FormItem>
               )}
@@ -123,9 +125,9 @@ export function ContactForm() {
               name="email"
               render={({ field }) => (
                 <FormItem >
-                  <FormLabel className="text-white">Correo Electronico:</FormLabel>
+                  <FormLabel className="text-white">{t("email")}</FormLabel>
                   <FormControl>
-                    <Input type="email" className="text-white " placeholder="Escriba su correo" {...field} />
+                    <Input type="email" className="text-white " placeholder={t("placeholderEmail")} {...field} />
                   </FormControl>
                 </FormItem>
               )}
@@ -135,14 +137,14 @@ export function ContactForm() {
               name="message"
               render={({ field }) => (
                 <FormItem >
-                  <FormLabel className="text-white">Descripción:</FormLabel>
+                  <FormLabel className="text-white">{t("description")}</FormLabel>
                   <FormControl>
-                    <Textarea className="text-white" placeholder="Escriba su mensaje" {...field} />
+                    <Textarea className="text-white" placeholder={t("placeholderDescription")} {...field} />
                   </FormControl>
                 </FormItem>
               )}
             />
-            <Button type="submit" className="bg-transparent border-solid border-2 w-20 m-auto mt-5 hover:bg-neutral-200 hover:text-black">Enviar</Button>
+            <Button type="submit" className="bg-transparent border-solid border-2 w-20 m-auto mt-5 hover:bg-neutral-200 hover:text-black">{t("button")}</Button>
           </form>
         </Form>
       </Card>

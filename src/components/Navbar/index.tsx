@@ -28,12 +28,17 @@ const Navbar: React.FC = () => {
 
     const [currentOption, setCurrentOption] = useState(options[0]);
 
-
     const handleLanguageChange = () => {
         const newOption = currentOption.code === 'es' ? options[1] : options[0];
         setCurrentOption(newOption);
         router.push(`/${newOption.code}`);
     };
+
+    let linkHref = `${pathname}/contacto`;
+
+    if (pathname.includes('/contacto')) {
+        linkHref = `/`;
+    }
 
     useEffect(() => {
         const currentLang = pathname.split('/')[1];
@@ -45,7 +50,7 @@ const Navbar: React.FC = () => {
         <nav className='flex justify-end mb-2 mr-8 '>
             <ul className='flex justify-center items-center  z-50'>
                 <li>
-                    <Link href="/contacto" className='underline underline-offset-4 mr-5'>{t("contact")}</Link>
+                    <Link href={linkHref} className='underline underline-offset-4 mr-5'>{ pathname.includes('/contacto') ? t("home") : t("contact")}</Link>
                 </li>
                 <AnimatePresence mode='wait'>
                     <motion.li

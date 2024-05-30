@@ -7,7 +7,6 @@ import { useTranslations } from "next-intl";
 
 export const InteractiveImage = () => {
     const t = useTranslations("Image");
-
     return (
         <motion.div
             initial={{ y: 100, opacity: 0 }}

@@ -124,9 +124,6 @@ export function CardDemo({ className, ...props }: CardProps) {
           </div>
           <div className='flex flex-col justify-end mt-auto items-end'>
             <CardDescription className="text-white text-[.9rem]">
-              rafaelmonroy001@gmail.com
-            </CardDescription>
-            <CardDescription className="text-white text-[.9rem]">
               © 2024 rafadev.com
             </CardDescription>
           </div>
