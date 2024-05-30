@@ -4,6 +4,7 @@ import { Montserrat as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils"
 import ParticlesComponent from "@/components/Particles";
 import { Toaster } from "@/components/ui/toaster";
+import { NextIntlClientProvider, useMessages } from "next-intl";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -15,11 +16,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  locale
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode; locale: never;
 }>) {
+  const messages = useMessages();
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <link
           rel="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"
@@ -29,8 +32,10 @@ export default function RootLayout({
       <body className={cn(
         "min-h-screen bg-background font-sans antialiased",
         fontSans.variable
-      )} suppressHydrationWarning={true}>
-        {children}
+      )} >
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+        </NextIntlClientProvider>
         <Toaster />
       </body>
     </html>

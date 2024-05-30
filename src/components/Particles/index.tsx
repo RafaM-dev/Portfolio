@@ -26,49 +26,113 @@ export default function ParticlesComponent() {
         background: {
         },
         particles: {
-          color: { value: "#ffffff" },
-          move: {
-            direction: "none",
-            enable: true,
-            outModes: "out",
-            random: false,
-            speed: 1.5,
-            straight: false
+          "number": {
+            "value": 160,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
           },
-          number: { density: { enable: true, area: 700 }, value: 6 },
-          opacity: {
-            value: 0.9
+          "color": {
+            "value": "#ffffff"
           },
-          shape: {
-            type: "image",
-            image: [
-              {
-                src:
-                  "https://seeklogo.com/images/R/react-logo-7B3CE81517-seeklogo.com.png"
-              },
-              {
-                src:
-                  "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png"
-              },
-              {
-                src:
-                  "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
-              },
-              {
-                src:
-                  "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png"
-              }
-              ,
-              {
-                src:
-                  "https://www.drupal.org/files/project-images/nextjs-icon-dark-background.png"
-              }
-            ]
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            },
+            "polygon": {
+              "nb_sides": 5
+            },
+            "image": {
+              "src": "img/github.svg",
+              "width": 100,
+              "height": 100
+            }
           },
-          size: {
-            value: { min: 10, max: 25 }
+          "opacity": {
+            "value": 1,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 1,
+              "opacity_min": 0,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+              "enable": false,
+              "speed": 4,
+              "size_min": 0.3,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": false,
+            "distance": 150,
+            "color": "#ffffff",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 1,
+            "direction": "none",
+            "random": true,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": false,
+              "rotateX": 600,
+              "rotateY": 600
+            }
           }
-        }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "bubble"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "repulse"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 400,
+              "line_linked": {
+                "opacity": 1
+              }
+            },
+            "bubble": {
+              "distance": 250,
+              "size": 0,
+              "duration": 2,
+              "opacity": 0,
+              "speed": 3
+            },
+            "repulse": {
+              "distance": 400,
+              "duration": 0.4
+            },
+            "push": {
+              "particles_nb": 4
+            },
+            "remove": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true
       }}
     />
   );

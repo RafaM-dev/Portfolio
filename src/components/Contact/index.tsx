@@ -110,7 +110,7 @@ export function ContactForm() {
               control={form.control}
               name="username"
               render={({ field }) => (
-                <FormItem >
+                <FormItem>
                   <FormLabel className="text-white">Nombre:</FormLabel>
                   <FormControl>
                     <Input className="text-white" placeholder="Escriba su nombre" {...field} />

@@ -8,6 +8,7 @@ import { Loading } from '@/components/Loading';
 import { ContactForm } from '@/components/Contact';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
+import ParticleLogo from '@/components/Logo';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -30,10 +31,11 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <Navbar/>
+          <Navbar />
           <ParticlesComponent />
           <InteractiveImage />
           <CardDemo />
+          {/* <ParticleLogo/> */}
           {/* <ContactForm /> */}
         </motion.div>
       )}
