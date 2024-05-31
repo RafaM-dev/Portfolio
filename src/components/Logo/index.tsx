@@ -12,20 +12,20 @@ const ParticleLogo = ({
     friction = 0.15
 }) => {
     const particleOptions = {
-        filter: ({ x, y, image }) => {
+        filter: ({ x, y, image }: { x: number, y: number, image: any }) => {
             const pixel = image.get(x, y);
             return pixel.b > 50;
         },
-        color: ({ x, y, image }) => color,
+        color: ({ x, y, image }: { x: number, y: number, image: any }) => color,
         radius: () => radius,
         mass: () => mass,
         friction: () => friction,
-        initialPosition: ({ canvasDimensions }) => {
+        initialPosition: ({ canvasDimensions }: { canvasDimensions: { width: number, height: number } }) => {
             return new Vector(canvasDimensions.width , canvasDimensions.height );
         }
     };
 
-    const motionForce = (x, y) => {
+    const motionForce = (x: number, y: number) => {
         return forces.disturbance(x, y, 3);
     };
 
