@@ -14,6 +14,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { SiGmail } from 'react-icons/si'
 import { useTranslations } from "next-intl";
 import ParticleLogo from '../Logo'
+import { TbFileCv } from 'react-icons/tb'
 
 type CardProps = React.ComponentProps<typeof Card>
 
@@ -82,15 +83,19 @@ export function CardDemo({ className, ...props }: CardProps) {
             </svg>
           </div>
           <div className="flex gap-4">
+            <a href={`/documents/${t("documents")}`} download target="_blank" rel="noopener noreferrer">
+              <TbFileCv color='#fff' size={28} />
+            </a>
             <a href="mailto:rafaelmonroy001@gmail.com" target="_blank" rel="noopener noreferrer">
-              <SiGmail color='#fff' size={25} />
+              <SiGmail color='#fff' size={28} />
             </a>
             <a href="https://github.com/RafaM-dev" target="_blank" rel="noopener noreferrer">
-              <FaGithub color='#fff' size={25} />
+              <FaGithub color='#fff' size={28} />
             </a>
             <a href="https://www.linkedin.com/in/rafaelmonroyr/" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin color='#fff' size={25} />
+              <FaLinkedin color='#fff' size={28} />
             </a>
+
           </div>
         </CardHeader>
         <CardContent className="grid lg:grid-cols-4 grid-cols-1 gap-4 mt-2">
@@ -119,8 +124,8 @@ export function CardDemo({ className, ...props }: CardProps) {
           <div className='flex '>
             <ParticleLogo scale={0.1} maxParticles={1000} entropy={5} />
             <ParticleLogo color='#D4B830' src='/javascript-logo.png' scale={0.2} maxParticles={2500} entropy={0} />
-            <ParticleLogo color='#fff' src='/nextjs-logo.png'  scale={0.06} maxParticles={2500} entropy={0} />
-            <ParticleLogo color='#DE002D' src='/angular-logo.png'  scale={0.15} maxParticles={2500} entropy={0} />
+            <ParticleLogo color='#fff' src='/nextjs-logo.png' scale={0.06} maxParticles={2500} entropy={0} />
+            <ParticleLogo color='#DE002D' src='/angular-logo.png' scale={0.15} maxParticles={2500} entropy={0} />
           </div>
           <div className='flex flex-col justify-end mt-auto items-end'>
             <CardDescription className="text-white text-[.9rem]">

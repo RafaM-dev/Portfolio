@@ -34,6 +34,7 @@ export default function RootLayout({
         fontSans.variable
       )} >
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <ParticlesComponent />
           {children}
         </NextIntlClientProvider>
         <Toaster />

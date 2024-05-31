@@ -32,8 +32,7 @@ export default function Home() {
           transition={{ duration: 1.5 }}
         >
           <Navbar />
-          <ParticlesComponent />
-          <InteractiveImage />
+          {/* <InteractiveImage /> */}
           <CardDemo />
           {/* <ParticleLogo/> */}
           {/* <ContactForm /> */}

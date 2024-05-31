@@ -9,6 +9,7 @@ import { StaticImageData } from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image'; // Add this line
 import { AnimatePresence, motion } from 'framer-motion';
+import { TbFileCv } from "react-icons/tb";
 
 interface Option {
     country: string;
@@ -48,10 +49,18 @@ const Navbar: React.FC = () => {
 
     return (
         <nav className='flex justify-end mb-2 mr-8 '>
-            <ul className='flex justify-center items-center  z-50'>
+            <ul className='flex justify-center items-center gap-5  z-50'>
+
                 <li>
-                    <Link href={linkHref} className='underline underline-offset-4 mr-5'>{ pathname.includes('/contacto') ? t("home") : t("contact")}</Link>
+                    <Link href={linkHref} className="rounded-md  py-2 xl:text-2xl text-xl font-medium relative group font-montserrat">
+                        <span>{pathname.includes('/contacto') ? t("home") : t("contact")}</span>
+                        <span className="absolute -bottom-0 left-1/2 w-0 h-[0.1rem] bg-[#ffffff]group-hover:w-1/2 group-hover:transition-all group-hover:duration-300 duration-300"></span>
+                        <span className="absolute -bottom-0 right-1/2 w-0 h-[0.1rem] bg-[#ffffff] group-hover:w-1/2 group-hover:transition-all group-hover:duration-300 duration-300"></span>
+                        <span className="absolute -bottom-0 left-1/2 w-0 h-[0.1rem] bg-[#ffffff] group-hover:w-1/2 group-hover:transition-all group-hover:duration-300 duration-300"></span>
+                        <span className="absolute -bottom-0 right-1/2 w-0 h-[0.1rem] bg-[#ffffff] group-hover:w-1/2 group-hover:transition-all group-hover:duration-300 duration-300"></span>
+                    </Link>
                 </li>
+           
                 <AnimatePresence mode='wait'>
                     <motion.li
                         key={currentOption.code}
