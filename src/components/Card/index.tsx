@@ -56,7 +56,7 @@ export function CardDemo({ className, ...props }: CardProps) {
   }, []);
   return (
     <div className="card">
-      <Card className={cn("inner xl:w-[70rem] w-[20rem] sm:w-[42rem] lg:w-[60rem] 2xl:backdrop-blur-[80px]", className)} {...props}>
+      <Card className={cn("inner xl:w-[70rem] w-[95%] m-auto sm:w-[42rem] lg:w-[60rem] 2xl:backdrop-blur-[80px]", className)} {...props}>
         <CardHeader className="flex flex-row justify-between items-center m-0">
           <div>
             <svg
@@ -108,7 +108,7 @@ export function CardDemo({ className, ...props }: CardProps) {
               {t("about2")}
             </CardDescription>
           </div>
-          <CardContent className="col-span-1 p-0 justify-self-end">
+          <CardContent className="col-span-1 p-0 lg:justify-self-end">
             <CardTitle className="text-[1.5rem] md:text-3xl">{t("projects")}</CardTitle>
             <ul className="flex flex-col gap-4 text-white mt-4 underline font-montserrat md:text-xl">
               <li><a href="https://www.smrealestate.com.co/" target="_blank" rel="noopener noreferrer">Sm Real Estate</a></li>
@@ -120,14 +120,14 @@ export function CardDemo({ className, ...props }: CardProps) {
             </ul>
           </CardContent>
         </CardContent>
-        <CardFooter className="flex justify-between">
-          <div className='flex '>
+        <CardFooter className="flex justify-between lg:flex-row flex-col">
+          <div className='flex flex-wrap lg:flex-nowrap '>
             <ParticleLogo scale={0.1} maxParticles={1000} entropy={5} />
             <ParticleLogo color='#D4B830' src='/javascript-logo.png' scale={0.2} maxParticles={2500} entropy={0} />
             <ParticleLogo color='#fff' src='/nextjs-logo.png' scale={0.06} maxParticles={2500} entropy={0} />
             <ParticleLogo color='#DE002D' src='/angular-logo.png' scale={0.15} maxParticles={2500} entropy={0} />
           </div>
-          <div className='flex flex-col justify-end mt-auto items-end'>
+          <div className='flex flex-col justify-end mt-auto items-end w-full'>
             <CardDescription className="text-white text-[.9rem]">
               © 2024 rafadev.com
             </CardDescription>
