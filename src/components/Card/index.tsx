@@ -9,17 +9,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { SiGmail } from 'react-icons/si'
 import { useTranslations } from "next-intl";
 import ParticleLogo from '../Logo'
 import { TbFileCv } from 'react-icons/tb'
+import { motion } from 'framer-motion';
 
 type CardProps = React.ComponentProps<typeof Card>
 
 export function CardDemo({ className, ...props }: CardProps) {
   const t = useTranslations("Home");
+  const [isHovered, setIsHovered] = useState(true);
 
   useEffect(() => {
     const all = document.querySelectorAll(".card");
@@ -108,17 +110,47 @@ export function CardDemo({ className, ...props }: CardProps) {
               {t("about2")}
             </CardDescription>
           </div>
-          <CardContent className="col-span-1 p-0 lg:justify-self-end">
-            <CardTitle className="text-[1.5rem] md:text-3xl">{t("projects")}</CardTitle>
-            <ul className="flex flex-col gap-4 text-white mt-4 underline font-montserrat md:text-xl">
-              <li><a href="https://www.smrealestate.com.co/" target="_blank" rel="noopener noreferrer">Sm Real Estate</a></li>
-              <li><a href="https://visionemos.sabaneta.gov.co/" target="_blank" rel="noopener noreferrer">Visionemos Sabaneta</a></li>
-              <li><a href="https://tupfy.netlify.app/" target="_blank" rel="noopener noreferrer">Tupfy</a></li>
-              <li><a href="https://github.com/RafaM-dev/NequiClone" target="_blank" rel="noopener noreferrer">Nequi Clone</a></li>
-              <li><a href="https://gym-webpage.netlify.app/" target="_blank" rel="noopener noreferrer">Gym Web</a></li>
-              <li><a href="https://inmowebsite.netlify.app/" target="_blank" rel="noopener noreferrer">InmoWeb</a></li>
-            </ul>
-          </CardContent>
+          <motion.div
+            className={`col-span-1 p-0 lg:justify-self-end self-center  ${isHovered && 'bg-transparent'}   `}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: isHovered ? 1 : 1, x: isHovered ? 0 : 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {!isHovered && (
+              <motion.div
+                className={`text-[1.5rem] md:text-3xl text-white [writing-mode:vertical-lr] rotate-180  `}
+                initial={{ opacity: 1, y: -50 }}
+                animate={{ opacity: isHovered ? 1 : 1, y: isHovered ? 20 : 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {t("projects")}
+              </motion.div>
+            )}
+            {isHovered && (
+              <motion.div
+                className="duration-500 transform translate-x-24 "
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0 }}
+              >
+                <CardTitle
+                  className={`text-[1.5rem] md:text-3xl text-white `}
+                >
+                  {t("projects")}
+                </CardTitle>
+                <ul className="flex flex-col gap-4 text-white mt-4 underline font-montserrat md:text-xl">
+                  <li><a href="https://www.smrealestate.com.co/" target="_blank" rel="noopener noreferrer">Sm Real Estate</a></li>
+                  <li><a href="https://visionemos.sabaneta.gov.co/" target="_blank" rel="noopener noreferrer">Visionemos Sabaneta</a></li>
+                  <li><a href="https://tupfy.netlify.app/" target="_blank" rel="noopener noreferrer">Tupfy</a></li>
+                  <li><a href="https://github.com/RafaM-dev/NequiClone" target="_blank" rel="noopener noreferrer">Nequi Clone</a></li>
+                  <li><a href="https://gym-webpage.netlify.app/" target="_blank" rel="noopener noreferrer">Gym Web</a></li>
+                  <li><a href="https://inmowebsite.netlify.app/" target="_blank" rel="noopener noreferrer">InmoWeb</a></li>
+                </ul>
+              </motion.div>
+            )}
+          </motion.div>
         </CardContent>
         <CardFooter className="flex justify-between lg:flex-row flex-col">
           <div className='flex flex-wrap lg:flex-nowrap '>
