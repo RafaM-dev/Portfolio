@@ -7,7 +7,6 @@ import { Engine } from 'tsparticles-engine';
 
 export default function ParticlesComponent() {
   const particlesInit = useCallback(async (engine: Engine) => {
-    console.log(engine);
     await loadSlim(engine);
   }, []);
 

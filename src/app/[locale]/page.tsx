@@ -27,10 +27,7 @@ export default function Home() {
           transition={{ duration: 1.5 }}
         >
           <Navbar />
-          {/* <InteractiveImage /> */}
           <CardDemo />
-          {/* <ParticleLogo/> */}
-          {/* <ContactForm /> */}
         </motion.div>
       )}
     </>

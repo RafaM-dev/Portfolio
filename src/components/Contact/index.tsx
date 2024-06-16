@@ -52,7 +52,6 @@ export function ContactForm() {
     emailjs.send('service_79cog4e', 'template_rdaneiw', data, 'LCGFukJ0NJo2O1HJy')
       .then(
         () => {
-          console.log('SUCCESS!');
           toast({
             description: "Correo Enviado.",
             duration: 2400,
@@ -64,7 +63,6 @@ export function ContactForm() {
             description: error.text,
             duration: 2400,
           })
-          console.log('FAILED...', error.text);
         },
       );
   };
