@@ -24,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
+        <link rel="shortcut icon" href="/my-icon.ico" sizes="16" />
         <link
           rel="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
